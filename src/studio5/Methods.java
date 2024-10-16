@@ -14,11 +14,13 @@ public class Methods {
 	 * @return the Euclidean distance between (x1,y1) and (x2,y2)
 	 */
 	public static double distanceBetween(double x1, double y1, double x2, double y2) {
-		double distance = 0;
+		double distance = Math.sqrt( Math.pow(x2 - x1, 2) +  Math.pow(y2 - y1, 2)  );
 		// FIXME: Hint use Math methods (e.g. Math.sqrt) to compute the distance
 		
 		return distance;
 	}
+	
+	
 
 	/**
 	 * Draw a bull's eye at the given location with the given radius.
@@ -35,17 +37,20 @@ public class Methods {
 		// Blue ring with 3.0/4.0 the radius
 		// suggested rgb values: 0, 109, 219
 
-		
+		StdDraw.setPenColor(StdDraw.BLUE);
+		StdDraw.filledCircle(x, y, (3.0/4.0) * radius);
 
 		// Red ring with 1.0/2.0 the radius
 		// suggested rgb values: 146, 0, 0
 
-		
+		StdDraw.setPenColor(StdDraw.RED);
+		StdDraw.filledCircle(x, y, (1.0/2.0) * radius);
 
 		// Yellow ring with 1.0/4.0 the radius
 		// suggested rgb values: 255, 255, 109
 
-		
+		StdDraw.setPenColor(StdDraw.YELLOW);
+		StdDraw.filledCircle(x, y, (1.0/4.0) * radius);
 	}
 
 	/**
@@ -72,9 +77,15 @@ public class Methods {
 	 * @param values an array of integers
 	 * @return the sum of the elements in values
 	 */
+	
+	
 	public static int arraySum(int[] values) {
 		int sum = 0;
 		// FIXME: Compute the sum of the values in an array
+		
+		for(int v : values) {
+			sum += v; 
+		}
 		
 		return sum;
 	}
@@ -93,6 +104,22 @@ public class Methods {
 		
 
 		return values;
+	}
+	
+	public static int arrayMean(int[] array) {
+		
+		int mean = 0;
+		int sum = 0;
+		
+		for(int a : array) {
+			
+			sum+= a; 
+			
+			mean = sum / array.length;
+		}
+		
+		return mean;
+	
 	}
 
 	// TODO: Create an arrayMean method which accepts an int array of values parameter.
